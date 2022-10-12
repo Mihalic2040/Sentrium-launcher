@@ -12,7 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sentrium.launcher.sentriumlauncher.WebAunth;
+
 
 public class LoginController {
 
@@ -42,10 +45,11 @@ public class LoginController {
 
     }
 
-    @FXML
-    void onLoginBTNClick(ActionEvent event) {
 
-    }
+
+
+    @FXML
+    private Text TextLB;
 
     @FXML
     void initialize() {
@@ -65,8 +69,27 @@ public class LoginController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 1200, 720));
             stage.setResizable(false);
-            stage.showAndWait();
+            stage.show();
         });
+    //on login button click event
+        LoginBtn.setOnAction(event -> {
+        // get data from NicknameFil and PasswdFil
+        String username = NicknameFil.getText();
+        String password = PasswFil.getText();
+            String USER_UUID = null;
+            try {
+                USER_UUID = WebAunth.WebAunthFunc(username, password);
+            } catch (Exception e) {
+                TextLB.setText("Sorry ERROR try later!");
+                throw new RuntimeException(e);
+
+            }
+            TextLB.setText(USER_UUID);
+        });
+
+
+
+
     }
 
 }

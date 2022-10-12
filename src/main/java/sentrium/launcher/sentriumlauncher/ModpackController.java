@@ -1,2 +1,4 @@
-package sentrium.launcher.sentriumlauncher;public class ModpackController {
+package sentrium.launcher.sentriumlauncher;
+
+public class ModpackController {
 }

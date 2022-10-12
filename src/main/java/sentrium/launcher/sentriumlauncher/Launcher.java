@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+//import sentrium.launcher.sentriumlauncher.WebAunth;
 import java.io.IOException;
 
 //Отче наш, Иже еси на небесе́х!
@@ -19,13 +19,18 @@ import java.io.IOException;
 
 public class Launcher extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 720);
         stage.setTitle("Sentrium Launcher");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+
+        //тут тест для аунтефікації його можна ігнорити
+        //String UUID_DATA = WebAunth.WebAunthFunc("test", "test_pass");
+        // System.out.println(UUID_DATA);
+
     }
 
     public static void main(String[] args) {
